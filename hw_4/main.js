@@ -1,15 +1,15 @@
 // // //Задачки на приведення до типів
-// console.log("3" + 2);
-// console.log("3" + true);
-// console.log("3" + undefined);
-// console.log("3" + null);
-// console.log(35 * "hello");
-// console.log(5 + null);
-// console.log("5" + null);
-// console.log("5" - 2);
-// console.log("5" * "2");
-// console.log(20 + "abc");
-// console.log("10" * "10");
+// console.log("3" + 2); //32
+// console.log("3" + true); //3true
+// console.log("3" + undefined);//3undefined
+// console.log("3" + null); //3null
+// console.log(35 * "hello"); //Nan
+// console.log(5 + null); //undefined
+// console.log("5" + null); //5null  
+// console.log("5" - 2); //3
+// console.log("5" * "2"); //10
+// console.log(20 + "abc"); //20abc
+// console.log("10" * "10"); //100
 // console.log(2 - "x" + "10abc");
 // console.log(3 + "2");
 // console.log("10" / "2");
