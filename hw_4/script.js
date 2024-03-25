@@ -14,27 +14,18 @@
 //     }
 // }
 
-//String: lexics (ДОРОБИТИ!!!!!!!!!!!!!)
+//String: lexics 
 
-// // Запит тексту у користувача
-// const text = prompt("Будь ласка, введіть текст:");
+// const badWords = ["отойво", "оцейво", "тута"];
+// const text = prompt("Будь ласка, введіть текст:").toLowerCase();
+// const indexOf = text.indexOf(badWords[0]) !== -1 || text.indexOf(badWords[1]) !== -1 || text.indexOf(badWords[2]) !== -1;
 
-// // Некоректні слова, які ми будемо перевіряти
-// const badWords = ["некоректне_слово1", "некоректне_слово2", "некоректне_слово3"];
-
-// // Перевірка на наявність некоректних слів у тексті
-// let foundBadWords = [];
-// for (let word of badWords) {
-//     if (text.toLowerCase().includes(word.toLowerCase())) {
-//         foundBadWords.push(word);
-//     }
-// }
-// // Виведення результату перевірки
-// if (foundBadWords.length === 0) {
-//     console.log("Текст не містить некоректних слів.");
+// if (!indexOf) {
+//     alert("Текст не містить некоректних слів.");
 // } else {
-//     console.log("Текст містить некоректні слова:", foundBadWords.join(", "));
+//     alert("Зверніть увагу, що текст містить некоректні слова");
 // }
+
 
 //Boolean
 // {
@@ -194,8 +185,47 @@
 
 //Login and password
 
-//Currency exchange
+// const correctlogin = "admin";
+// const correctpassword = "qwerty";
 
+// const login = prompt("Введіть ваш логін")
+// if (login === correctlogin) {
+//     alert ("Так, логін правильний!")
+//     const password = prompt("Введіть ваш пароль")
+//     if (password === correctpassword) {
+//         alert (`Так, пароль правильний. Ласкаво просимо ${login}.`)
+//     } else {
+//         alert("Помилка при введенні пароля!")
+//     }
+// } else {
+//     alert("Помилка при введенні логіну!")
+// }
+
+
+//Currency exchange (ДОРОБИТИ!)
+
+// const currencySelection = prompt("Введіть необхідну валюту (usd, eur, pln)");
+// const currencyTransaction = confirm("Ви хочете купити іноземну валюту?");
+
+// let rate;
+// if(currencySelection === "usd"){
+//     rate = currencyTransaction ? 38.85 : 39.31;
+// } else if(currencySelection === "eur") {
+//     rate = currencyTransaction ? 42.2 : 42.85;
+// } else if(currencySelection === "pln") {
+//     rate = currencyTransaction ? 9.655 : 9.9;
+// } else {
+//     alert("Вибачте, ми не маємо курсу на цю валюту.")
+// }
+// if (rate) {
+//     const sum = parseFloat(prompt("Будь ласка, введіть суму на обмін:"));
+//     if (!isNaN(sum)) {
+//         const result = currencyTransaction ? sum  / rate : sum  * rate;
+//         alert(`Ви отримаєте ${result.toFixed(4)} UAH за ${sum} ${currencySelection}.`);
+//     } else {
+//         alert("Будь ласка, введіть коректну суму.");
+//     }
+// }
 //Scissors
 
 // const userInput = prompt("Давайте зіграємо в гру \"Камінь-ножиці-папір\"? Ваш хід:");
