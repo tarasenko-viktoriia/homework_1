@@ -202,30 +202,36 @@
 // }
 
 
-//Currency exchange (ДОРОБИТИ!)
+//Currency exchange 
 
-// const currencySelection = prompt("Введіть необхідну валюту (usd, eur, pln)");
+// const currencySelection = prompt("Введіть необхідну валюту (usd, eur, pln)").toLowerCase();
 // const currencyTransaction = confirm("Ви хочете купити іноземну валюту?");
 
 // let rate;
-// if(currencySelection === "usd"){
+// if (currencySelection === "usd") {
 //     rate = currencyTransaction ? 38.85 : 39.31;
-// } else if(currencySelection === "eur") {
+// } else if (currencySelection === "eur") {
 //     rate = currencyTransaction ? 42.2 : 42.85;
-// } else if(currencySelection === "pln") {
+// } else if (currencySelection === "pln") {
 //     rate = currencyTransaction ? 9.655 : 9.9;
 // } else {
-//     alert("Вибачте, ми не маємо курсу на цю валюту.")
+//     alert("Вибачте, ми не маємо курсу на цю валюту.");
 // }
+
 // if (rate) {
 //     const sum = parseFloat(prompt("Будь ласка, введіть суму на обмін:"));
 //     if (!isNaN(sum)) {
-//         const result = currencyTransaction ? sum  / rate : sum  * rate;
-//         alert(`Ви отримаєте ${result.toFixed(4)} UAH за ${sum} ${currencySelection}.`);
+//         const result = currencyTransaction ? sum / rate : sum * rate;
+//         if (currencyTransaction === true) {
+//             alert(`Ви отримали ${result.toFixed(2)} ${currencySelection.toUpperCase()}.`);
+//         } else {
+//             alert(`Ви отримали ${result.toFixed(2)} UAH.`);
+//         }
 //     } else {
 //         alert("Будь ласка, введіть коректну суму.");
 //     }
 // }
+
 //Scissors
 
 // const userInput = prompt("Давайте зіграємо в гру \"Камінь-ножиці-папір\"? Ваш хід:");
