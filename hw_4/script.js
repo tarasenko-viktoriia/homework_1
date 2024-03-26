@@ -233,44 +233,54 @@
 // }
 
 //Scissors
-
-// const userInput = prompt("Давайте зіграємо в гру \"Камінь-ножиці-папір\"? Ваш хід:");
-// let computerInput = Math.random();
-// let computerChoice;
-// if (computerInput < 0.33) {
-//     computerChoice = "Камінь";
-// } else if (computerInput < 0.67) {
-//     computerChoice = "Ножиці";
-// } else {
-//     computerChoice = "Папір";
-// }
-// alert(`Мій хід: ${computerChoice}`);
-
-// let result = "";
-// if (userInput.toLowerCase() === computerChoice.toLowerCase()) {
-//     result = "Нічия!";
-// } else if (userInput.toLowerCase() === "камінь") {
-//     if (computerChoice === "Ножиці") {
-//         result = "Ви перемогли!";
+// {
+//     const userInput = prompt("Давайте зіграємо в гру \"Камінь-ножиці-папір\"? Ваш хід:");
+//     let computerInput = Math.random();
+//     let computerChoice;
+//     if (computerInput < 0.33) {
+//         computerChoice = "Камінь";
+//     } else if (computerInput < 0.67) {
+//         computerChoice = "Ножиці";
 //     } else {
-//         result = "Я переміг!";
+//         computerChoice = "Папір";
 //     }
-// } else if (userInput.toLowerCase() === "ножиці") {
-//     if (computerChoice === "Папір") {
-//         result = "Ви перемогли!";
-//     } else { result = "Я переміг!";
-//         }
-//     } else if (userInput.toLowerCase() === "папір") {
-//         if (computerChoice === "камінь") {
+//     alert(`Мій хід: ${computerChoice}`);
+    
+//     let result = "";
+//     if (userInput.toLowerCase() === computerChoice.toLowerCase()) {
+//         result = "Нічия!";
+//     } else if (userInput.toLowerCase() === "камінь") {
+//         if (computerChoice === "Ножиці") {
 //             result = "Ви перемогли!";
 //         } else {
 //             result = "Я переміг!";
 //         }
-//     } else {
-//         result = "Ви неправильно ввели хід!";
-//     }
-//     alert(result);
+//     } else if (userInput.toLowerCase() === "ножиці") {
+//         if (computerChoice === "Папір") {
+//             result = "Ви перемогли!";
+//         } else { result = "Я переміг!";
+//             }
+//         } else if (userInput.toLowerCase() === "папір") {
+//             if (computerChoice === "камінь") {
+//                 result = "Ви перемогли!";
+//             } else {
+//                 result = "Я переміг!";
+//             }
+//         } else {
+//             result = "Ви неправильно ввели хід!";
+//         }
+//         alert(result);    
+// }
 
 //Додаткове завдання
 
 //Завдання на чорний пояс
+// {
+//     const userInput = prompt("Давайте зіграємо в гру \"Камінь-ножиці-папір\"? Ваш хід:");
+//     const computerInput = Math.random();
+//     const computerChoice = computerInput < 0.33 ? "Камінь" : computerInput < 0.67 ? "Ножиці" : "Папір";
+//     alert(`Мій хід: ${computerChoice}`);
+//     const result = userInput.toLowerCase() === computerChoice.toLowerCase() ? "Нічия!" : userInput.toLowerCase() === "камінь" && computerChoice === "Ножиці" || userInput.toLowerCase() === "ножиці" && computerChoice === "Папір" || userInput.toLowerCase() === "папір" && computerChoice === "Камінь" ? "Ви перемогли!" : "Я переміг!";
+//     alert(result);
+// }
+
