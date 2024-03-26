@@ -31,12 +31,12 @@ if (nameTask=== "Number: odd") {
 } else if (nameTask=== "Boolean: if") {
     const firstQuestion = confirm("Ви жінка?");
     const secondQuestion = confirm("Вам є вже 18?");
-    if (firstQuestion === true) {
+    if (firstQuestion) {
         alert("Ви жінка.");
         } else {
         alert("Ви чоловік.");
         }
-    if (secondQuestion === true) {
+    if (secondQuestion) {
         alert("Ви повнолітні.");
         } else {
         alert("Ви неповнолітні.");
@@ -67,7 +67,7 @@ if (nameTask=== "Number: odd") {
     }
 } else if (nameTask=== "Ternary") {
     const question = confirm("Ви жінка?");
-    question === true ? alert("Ви жінка.") : alert("Ви чоловік.");
+    const text = question ? alert("Ви жінка.") : alert("Ви чоловік.");
 } else if (nameTask=== "Training") {
     // bool type cast
     !!2//true
@@ -183,7 +183,7 @@ if (nameTask=== "Number: odd") {
         const sum = parseFloat(prompt("Будь ласка, введіть суму на обмін:"));
         if (!isNaN(sum)) {
             const result = currencyTransaction ? sum / rate : sum * rate;
-            if (currencyTransaction === true) {
+            if (currencyTransaction) {
                 alert(`Ви отримали ${result.toFixed(2)} ${currencySelection.toUpperCase()}.`);
             } else {
                 alert(`Ви отримали ${result.toFixed(2)} UAH.`);

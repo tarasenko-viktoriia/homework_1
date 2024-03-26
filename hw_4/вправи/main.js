@@ -4,7 +4,7 @@ console.log("3" + true); //3true
 console.log("3" + undefined);//3undefined
 console.log("3" + null); //3null
 console.log(35 * "hello"); //Nan
-console.log(5 + null); //undefined
+console.log(5 + null); //5
 console.log("5" + null); //5null  
 console.log("5" - 2); //3
 console.log("5" * "2"); //10
@@ -17,8 +17,8 @@ console.log(1 + true);//2
 console.log(1 + false);//1
 console.log(1 + undefined);//Nan
 console.log(true + null);//1
-console.log(true + undefined);
-console.log(23 - true);//Nan
+console.log(true + undefined);//Nan
+console.log(23 - true);//22
 console.log(true - null);//1
 console.log(false + undefined);//Nan
 console.log("25" + 56);//2556
