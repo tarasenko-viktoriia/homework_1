@@ -177,71 +177,96 @@
 // }
 
 //For Select Option
-{
-    const currencies = ["USD", "EUR", "GBP", "UAH"]
-    let   str = "<select>"
-    for (const currency of currencies){
-        str += "<option>" + currency + "</option>";
-    }
-    str+= "</select>"
-    document.write(str) 
-}
+// {
+//     const currencies = ["USD", "EUR", "GBP", "UAH"]
+//     let   str = "<select>"
+//     for (const currency of currencies){
+//         str += "<option>" + currency + "</option>";
+//     }
+//     str+= "</select>"
+//     document.write(str) 
+// }
 
 //For Table Horizontal
-{
-    const names = ["John", "Paul", "George", "Ringo"];
-    let str = "<table border='1'>";
-    for (const name of names){
-        str += "<td>" + name + "</td>";
-    }
-    str += "</table>";
-    document.write(str);
-}
+// {
+//     const names = ["John", "Paul", "George", "Ringo"];
+//     let str = "<table border='1'>";
+//     for (const name of names){
+//         str += "<td>" + name + "</td>";
+//     }
+//     str += "</table>";
+//     document.write(str);
+// }
 
 //For Table Vertical
 
-{
-    const names = ["John", "Paul", "George", "Ringo"];
-    let str = "<table border='1'>";
-    for (const name of names){
-        str += "<tr><td>" + name + "</td></tr>";
-    }
-    str += "</table>";
-    document.write(str);
-}
+// {
+//     const names = ["John", "Paul", "George", "Ringo"];
+//     let str = "<table border='1'>";
+//     for (const name of names){
+//         str += "<tr><td>" + name + "</td></tr>";
+//     }
+//     str += "</table>";
+//     document.write(str);
+// }
 
 //For Table Letters (НЕ ПРАЦЮЄ)
-{
-    const currencies = ["USD", "EUR", "GBP", "UAH"];
-let str = "<table>";
+// {
+//     const currencies = ["USD", "EUR", "GBP", "UAH"];
+// let str = "<table>";
 
-let counter = 0;
-for (const currency of currencies) {
-    if (counter % 3 === 0) {
-        str += "<tr>";
-    }
-    str += "<td>";
-    for (const letter of currency) {
-        str += letter;
-    }
-    str += "</td>";
-    counter++;
-    if (counter % 3 === 0) {
-        str += "</tr>";
-    }
-}
-str += "</table>";
-document.write(str);
+// let counter = 0;
+// for (const currency of currencies) {
+//     if (counter % 3 === 0) {
+//         str += "<tr>";
+//     }
+//     str += "<td>";
+//     for (const letter of currency) {
+//         str += letter;
+//     }
+//     str += "</td>";
+//     counter++;
+//     if (counter % 3 === 0) {
+//         str += "</tr>";
+//     }
+// }
+// str += "</table>";
+// document.write(str);
 
-}
+// }
 
 //For Multiply Table
 
 //Function Capitalize
 
 //Map Capitalize
+// {
+//     function capitalize(word) {
+//         return word.charAt(0).toUpperCase() + word.slice(1);
+//     }
+//     const text = prompt('Введіть будь-яке речення.');
+//     const arr = text.split(' ');
+//     const textCapitalize = arr.map(word => capitalize(word));
+//     const result = textCapitalize.join(' ');
+//     console.log(result);
+// }
 
 //Filter Lexics
+const invalidWords = ['блін', 'тю', 'не']; // Визначений масив неприпустимих слів
+
+const text = prompt('Введіть будь-яке речення.');
+const arr = text.split(' ');
+
+function isValid(word) {
+    return !invalidWords.includes(word.toLowerCase());
+}
+
+const filteredArr = arr.filter(word => isValid(word));
+
+// Об'єднання допустимих слів у рядок
+const result = filteredArr.join(' ');
+
+console.log(result);
 
 //Beep Lexics
 
