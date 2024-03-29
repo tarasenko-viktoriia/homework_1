@@ -37,7 +37,7 @@
 //     }
 // }
 
-//Item change (доробити-зробити так, щоб можна було вводити декілька знчень)
+//Item change 
 
 // {
 //     let arr = [];
@@ -73,34 +73,51 @@
 // const multiplicationTableWithoutZeros = multiplicationTable.slice(1).map(row => row.slice(1));
 // console.log(multiplicationTableWithoutZeros);
 
-//IndexOf Word (ДОРОБИТИ - вказує не слово, а букву)
+// //IndexOf Word 
 // {
 //     let arr = [];
 
 //     const text = prompt('Введіть рядок із декількох слів.');
 //     const itemText = prompt('Введіть будь-яке слово із цього рядка.');
-//     arr.push(text); // не треба може бути
 //     arr = text.split(' ');
-    
-//     if (text.indexOf(itemText) === -1) {
+
+//     const index = arr.indexOf(itemText);
+
+//     if (index === -1) {
 //         alert('Такого слова у вказаному рядку не виявлено.');
 //     } else {
-//         alert(`Ваше слово за рахунком в рядку: ${text.indexOf(itemText)+1}`);
+//         alert(`Ваше слово за рахунком в рядку: ${index + 1}`);
 //     }
 // }
 
-//Reverse (ДОРОБИТИ- відображає тільки останій елемент, а не весь масив)
+//Reverse 
 
 // {
 //     let arr = [];
 //     let text = prompt('Введіть рядок із 5 елементів');
-//     arr = text.split('');
+//     arr = text.split(' ');
 //     let arrReverse = [];
-//     arrReverse.push(arr.pop());
+//     for (let i = 0; i < arr.length; i+2) {
+//         arrReverse.push(arr.pop());
+//     }
 //     console.log("Масив у зворотньому порядку:", arrReverse);
-// }
+// }    
 
-//Reverse 2
+//Reverse 2 (ДОРОБИТИ!)
+// {
+//     let arr = [];
+//     let text = prompt('Введіть рядок із 5 елементів');
+//     arr = text.split(' ');
+//     let arrReverse = [];
+//     for (let i = 0; i < arr.length; i+2) {
+//         arrReverse.push(arr.pop());
+//     }
+//     console.log("Масив у зворотньому порядку:", arrReverse);
+//     for (let i = 0; i < arrReverse.length; i-2) {
+//         arrReverse.unshift(arrReverse.shift());
+//     }
+//     console.log("Масив у звичайному порядку:", arrReverse);
+// }
 
 //Copy
 
@@ -168,6 +185,20 @@
 
 
 //Multiply table rest
+// {
+//     const multiplyTable = [
+//         [0, 0, 0, 0, 0],
+//         [0, 1, 2, 3, 4],
+//         [0, 2, 4, 6, 8],
+//         [0, 3, 6, 9, 12],
+//         [0, 4, 8, 12, 16]
+//     ];
+    
+//     const trimmedRows = multiplyTable.map(([_, ...rest]) => rest.filter(num => num !== 0));
+//     const nonZeroRows = trimmedRows.filter(row => row.length > 0);
+    
+//     console.log(nonZeroRows);
+// }
 
 //For Alert
 
@@ -236,8 +267,36 @@
 // }
 
 //For Multiply Table
+// {
+//     const multiplyTable = [
+//         [0, 0, 0, 0, 0],
+//         [0, 1, 2, 3, 4],
+//         [0, 2, 4, 6, 8],
+//         [0, 3, 6, 9, 12],
+//         [0, 4, 8, 12, 16]
+//     ];
+//     document.write('<table border="1">');
+    
+//     for (let rowIdx = 0; rowIdx < multiplyTable.length; rowIdx++) {
+//         const row = multiplyTable[rowIdx];
+//         document.write('<tr style="background-color: ' + (rowIdx % 2 === 0 ? 'lightblue' : 'lightgreen') + '">');
+//         for (let colIdx = 0; colIdx < row.length; colIdx++) {
+//             document.write('<td>' + row[colIdx] + '</td>');
+//         }
+//         document.write('</tr>');
+//     }
+//     document.write('</table>');
+// }
 
 //Function Capitalize
+
+// {
+//     const capitalize = str => {
+//         let result = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+//         return result;
+//     }
+//     console.log(capitalize("cANBerRa"));
+// }
 
 //Map Capitalize
 // {
@@ -252,24 +311,32 @@
 // }
 
 //Filter Lexics
-const invalidWords = ['блін', 'тю', 'не']; // Визначений масив неприпустимих слів
-
-const text = prompt('Введіть будь-яке речення.');
-const arr = text.split(' ');
-
-function isValid(word) {
-    return !invalidWords.includes(word.toLowerCase());
-}
-
-const filteredArr = arr.filter(word => isValid(word));
-
-// Об'єднання допустимих слів у рядок
-const result = filteredArr.join(' ');
-
-console.log(result);
+// {
+//     const badWords = ["отойво", "оцейво", "тута"];
+//     const text = prompt("Будь ласка, введіть текст:").toLowerCase();
+//     const arr = text.split(' ');
+//     const filteredArr = arr.filter(word => !badWords.includes(word));
+//     const result = filteredArr.join(' ');
+//     console.log(filteredArr);
+// }
 
 //Beep Lexics
+// {
+//     const forbiddenWords = ["отойво", "оцейво", "тута"];
+//     const text = prompt("Будь ласка, введіть текст:").toLowerCase();
+//     const words = text.split(' ');
+//     const modifiedWords = words.map(word => forbiddenWords.includes(word) ? 'BEEP' : word);
+//     const result = modifiedWords.join(' ');
+//     console.log(result);
+// }
 
 //Reduce HTML
-
-//For Brackets Hell Check
+// {
+//     const currencies = ["USD", "EUR", "GBP", "UAH"];
+//     let str = "<select>";
+//     str += currencies.reduce((a, b) => {
+//         return a + `<option value="${b}">${b}</option>`;
+//     }, "");
+//     str += "</select>";
+//     document.write(str) 
+// }
