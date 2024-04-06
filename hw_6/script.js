@@ -57,23 +57,18 @@
 }
 
 // Html tree
-{
     const body = {
         tagName: "body",
-        parent: null,
         children: [ 
             {
                 tagName: "div",
-                parent: "body",
                 children: [ 
                     {
                         tagName: "span",
-                        parent: "div",
                         children: ['Enter a data please:'],
                     },
                     {
                         tagName: "br",
-                        parent: "div",
                     },
                     {
                         tagName: "input",
@@ -81,7 +76,6 @@
                             type: "text",
                             id: "name"
                         },
-                        parent: "div",
                     },
                     {
                         tagName: "input",
@@ -89,13 +83,11 @@
                             type: "text",
                             id: "surname"
                         },
-                        parent: "div",
                     }
                 ]
             },
             {
                 tagName: "div",
-                parent: "body",
                 children: [ 
                     {
                         tagName: "button",
@@ -103,7 +95,6 @@
                             id: "ok"
                         },
                         children: ['OK'],
-                        parent: "div",
                         
                     },
                     {
@@ -112,7 +103,6 @@
                             id: "cancel"
                         },
                         children: ['Cancel'],
-                        parent: "div",
                     },
                 ]
             }
@@ -120,7 +110,6 @@
     }
 console.log(body.children[1].children[1].children);
 console.log(body.children[0].children[3].attrs.id);
-}
 // Parent
 {
     const body = {
@@ -188,20 +177,16 @@ console.log(body.children[0].children[3].attrs.id);
 {
     const body = {
         tagName: "body",
-        parent: null,
         children: [ 
             {
                 tagName: "div",
-                parent: "body",
                 children: [ 
                     {
                         tagName: "span",
-                        parent: "div",
                         children: ['Enter a data please:'],
                     },
                     {
                         tagName: "br",
-                        parent: "div",
                     },
                     {
                         tagName: "input",
@@ -209,7 +194,6 @@ console.log(body.children[0].children[3].attrs.id);
                             type: "text",
                             id: "name"
                         },
-                        parent: "div",
                     },
                     {
                         tagName: "input",
@@ -217,13 +201,11 @@ console.log(body.children[0].children[3].attrs.id);
                             type: "text",
                             id: "surname"
                         },
-                        parent: "div",
                     }
                 ]
             },
             {
                 tagName: "div",
-                parent: "body",
                 children: [ 
                     {
                         tagName: "button",
@@ -232,7 +214,6 @@ console.log(body.children[0].children[3].attrs.id);
                             customAttribute: prompt("Введіть значення для ключа:"),
                         },
                         children: ['OK'],
-                        parent: "div",
                         
                     },
                     {
@@ -241,7 +222,6 @@ console.log(body.children[0].children[3].attrs.id);
                             id: "cancel"
                         },
                         children: ['Cancel'],
-                        parent: "div",
                     },
                 ]
             }
@@ -343,17 +323,17 @@ console.log(body.children[0].children[3].attrs.id);
 }
 // Destruct array
 {
-    let arr = [1,2,3,4,5, "a", "b", "c"];
-    let [odd1, even1, odd2, even2, odd3, ...letters] = arr;
+    const arr = [1,2,3,4,5, "a", "b", "c"];
+    const [odd1, even1, odd2, even2, odd3, ...letters] = arr;
     console.log("Odd Numbers:", odd1, odd2, odd3);
     console.log("Even Numbers:", even1, even2);
     console.log("Letters:", letters);
 }
 // Destruct string
 {
-    let arr = [1, "abc"];
-    let [number, str] = arr;
-    let [s1, s2, s3] = str.split('');
+    const arr = [1, "abc"];
+    const [number, str] = arr;
+    const [s1, s2, s3] = str.split('');
     console.log("Number:", number);
     console.log("s1:", s1);
     console.log("s2:", s2);
@@ -450,7 +430,7 @@ fetch("https://open.er-api.com/v6/latest/USD")
         console.error("Введіть коректні дані.", error);
     });
 }
-Table
+// Table
 {
     const persons = [
         {
