@@ -120,12 +120,98 @@ let a = 10;
 // })
 //closure calc
 
-fetch('https://open.er-api.com/v6/latest/USD').then(res => res.json())
-     .then(data => {
-
-            console.log(data) 
-        })
+// fetch('https://open.er-api.com/v6/latest/USD')
+//     .then(res => res.json())
+//     .then(data => {
+//       const container = document.getElementById('currencyContainer');
+//       for (const currency in data.rates) {
+//           const button = document.createElement('button');
+//           button.innerText = currency;
+//           button.onclick = () => {
+//               const amount = +(prompt(`Введіть суму у ${currency}:`));
+//               const convertedAmount = amount * data.rates[currency];
+//               alert(`${amount} ${currency} приблизно дорівнює ${convertedAmount.toFixed(2)} USD`);
+//           };
+//           container.appendChild(button);
+//       }
+//         console.log(data); 
+//     });
 
 //closure calc 2
+// const fromSelect = document.getElementById('from');
+// const toSelect = document.getElementById('to');
+// const rateDiv = document.getElementById('rate');
+// const amountInput = document.getElementById('amount');
+// const resultDiv = document.getElementById('result');
+
+// // Дані про валюти
+// const currencies = ['USD', 'EUR', 'GBP', 'JPY']; // Приклад валют
+
+// // Заповнюємо вибір валют
+// currencies.forEach(currency => {
+// const option1 = document.createElement('option');
+// const option2 = document.createElement('option');
+// option1.innerText = currency;
+// option2.innerText = currency;
+// fromSelect.appendChild(option1);
+// toSelect.appendChild(option2);
+// });
+
+// // Функція для оновлення курсу та результату
+// function updateConversion() {
+// const fromCurrency = fromSelect.value;
+// const toCurrency = toSelect.value;
+// const amount = parseFloat(amountInput.value);
+// const rate = 1; // Для простоти, припускаємо, що курс 1 зараз
+
+// // Оновлюємо курс
+// rateDiv.innerText = `Курс: 1 ${fromCurrency} = 1 ${toCurrency}`;
+
+// // Обчислюємо та оновлюємо результат
+// const result = amount * rate;
+// resultDiv.innerText = `Результат: ${result.toFixed(2)} ${toCurrency}`;
+// }
+
+// // Назначаємо обробники подій
+// fromSelect.onchange = updateConversion;
+// toSelect.onchange = updateConversion;
+// amountInput.oninput = updateConversion;
+
+// // Початкове оновлення
+//  updateConversion();
+// // Initial update
+// updateRateAndResult();
 
 //countries and cities
+
+fetch('https://raw.githubusercontent.com/russ666/all-countries-and-cities-json/master/countries.min.json')
+    .then(res => res.json())
+    .then(data => {
+        // Отримуємо посилання на елементи
+        const countriesSelect = document.getElementById('countries');
+        const citiesSelect = document.getElementById('cities');
+
+        for (const country in data) {
+            const option = document.createElement('option');
+            option.innerText = country;
+            countriesSelect.appendChild(option);
+        }
+
+        // Обробник події onchange для вибору країни
+        countriesSelect.onchange = function() {
+            // Видаляємо старий контент select#cities
+            citiesSelect.innerHTML = '';
+
+            // Отримуємо список міст для обраної країни
+            const selectedCountry = countriesSelect.value;
+            const cities = data[selectedCountry];
+
+            // Додаємо елементи option з містами до select#cities
+            cities.forEach(city => {
+                const option = document.createElement('option');
+                option.innerText = city;
+                citiesSelect.appendChild(option);
+            });
+        };
+        console.log(data); 
+    });
