@@ -1,3 +1,4 @@
+//blocks
 let a = 10;
 {
   let b = 20;
@@ -27,7 +28,7 @@ let a = 10;
 }
 //a=100, b-is not define, c-is not define, d-is not define
 
-
+//comparison if
 // const age = +prompt("Скільки вам років?", "");
 // if (age < 0) {
 //   alert("негативний вік");
@@ -45,68 +46,86 @@ let a = 10;
 //   alert("чи кіборг, чи KERNESS");
 // }
 
-// const size = 20;
+//switch: sizes
+// const size = +prompt("Введыть ваш розмір від 40 до 54");
 // switch (size) {
-//   case 6:
-//     alert("s");
-//     break;
-//   case 8:
-//   case 9:
-//   case 10:
-//   case 11:
-//     alert("m");
-//     break;
-//   case 12:
-//   case 13:
-//   case 14:
-//   case 15:
-//     alert("l");
-//     break;
-//   case 16:
-//   case 17:
-//   case 18:
-//   case 19:
-//     alert("xl");
-//     break;
-//   case 20:
-//     alert("xxl");
-//     break;
-//   default:
-//     alert("no size");
+//     case 40:
+//         alert("8");
+//         break;
+//     case 42:
+//         alert("10");
+//         break;
+//     case 44:
+//         alert("12");
+//         break;
+//     case 46:
+//         alert("14");
+//         break;
+//     case 48:
+//         alert("16");
+//         break;
+//     case 50:
+//         alert("18");
+//         break;
+//     case 52:
+//         alert("20");
+//         break;
+//     case 54:
+//         alert("22");
+//         break;
+//     default:
+//         alert("no size");
 // }
 
-// switch (true) {
-//   case size === 6:
-//     alert("s");
-//     break;
-//   case size >= 8 && size <= 11:
-//     alert("m");
-//     break;
-//   case size >= 12 && size <= 15:
-//     alert("l");
-//     break;
-//   case size >= 16 && size <= 19:
-//     alert("xl");
-//     break;
-//   case size === 20:
-//     alert("xxl");
-//     break;
-//   default:
-//     alert("no size");
+//switch: if
+// const color = prompt("Введіть колір", "");
+// if (color) {
+//   if (color === "red" || color === "black") {
+//     document.write("<div style='background-color: red;'>червоний</div>");
+//     document.write("<div style='background-color: black; color: white;'>чорний</div>");
+//   } else if (color === "blue" || color === "green") {
+//     document.write("<div style='background-color: blue;'>синій</div>");
+//     document.write("<div style='background-color: green;'>зелений</div>");
+//   } else {
+//     document.write("<div style='background-color: gray;'>Я не зрозумів</div>");
+//   }
 // }
 
-const color = prompt("Введіть колір", "");
+//noswitch
+// const noSwitch = (key, cases, defaultKey='default') => {
+//     if (key in cases && typeof cases[key] === 'function') {
+//         return cases[key]();
+//     } else if (defaultKey in cases && typeof cases[defaultKey] === 'function') {
+//         return cases[defaultKey]();
+//     }
+// }
+// // Умова key in cases перевіряє, чи існує ключ key у об'єкті cases. Наприклад, якщо key дорівнює "воду", то перевірка key in cases поверне true, оскільки в об'єкті cases є ключ "воду".
+// // Умова typeof cases[key] === 'function' перевіряє, чи значення, яке пов'язане з ключем key, є функцією. Якщо це так, то ця умова поверне true.
 
-if (color) {
-  if (color === "red" || color === "black") {
-    document.write("<div style='background-color: red;'>червоний</div>");
-    document.write(
-      "<div style='background-color: black; color: white;'>чорний</div>"
-    );
-  } else if (color === "blue" || color === "green") {
-    document.write("<div style='background-color: blue;'>синій</div>");
-    document.write("<div style='background-color: green;'>зелений</div>");
-  } else {
-    document.write("<div style='background-color: gray;'>Я не зрозумів</div>");
-  }
-}
+// // Умова defaultKey in cases перевіряє наявність ключа defaultKey у об'єкті cases. 
+// // Якщо цей ключ існує у cases, та значення за ним є функцією, то викликається ця функція. Це забезпечує можливість виконання певних дій, якщо введений ключ не відповідає жодному з передбачених варіантів.
+// const drink = prompt("Що ви любите пити")
+// noSwitch(drink, {
+//     воду: () => console.log('Найздоровіший вибір!'),
+//     чай(){
+//         console.log('Смачна та корисна штука. Не перестарайтеся з цукром')
+//     },
+//     "пиво": () => console.log('Добре влітку, та в міру'),
+//     віскі: function(){
+//         console.log('Та ви, батечку, естет! Не забудьте лід і сигару')
+//     },
+//     default(){
+//         console.log('шото я не зрозумів')
+//     }
+// })
+//closure calc
+
+fetch('https://open.er-api.com/v6/latest/USD').then(res => res.json())
+     .then(data => {
+
+            console.log(data) 
+        })
+
+//closure calc 2
+
+//countries and cities
