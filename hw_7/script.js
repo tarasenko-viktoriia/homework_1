@@ -213,6 +213,7 @@ const calculateMonthlySalary = (rate, numberDaysMonth, daysWorked) => {
     monthlySalary = parseFloat(monthlySalary.toFixed(2)); 
     return monthlySalary;
 }
+
 function calculateSalary() {
     const rate = parseFloat(document.getElementById("rate").value);
     const numberDaysMonth = parseInt(document.getElementById("numberDaysMonth").value);
