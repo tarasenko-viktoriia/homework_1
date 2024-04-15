@@ -40,14 +40,34 @@
 // while (!prompt()) {};
 
 //progression sum
-const n = +prompt();
-let sum = 0;
-for (let i = 0; i <= n; i += 3) {
-  sum += i;
-  console.log(i);
+// const n = +prompt();
+// let sum = 0;
+// for (let i = 0; i <= n; i += 3) {
+//   sum += i;
+//   console.log(i);
+// }
+
+//chess one line (ДОРОБИТИ!!!!)
+let i = ".";
+let e = "#"
+let str = "";
+let length = 7;
+for (let j=0; j < length; j++) {
+  str += i + e;
 }
-//chess one line
+console.log(str)
+
 //numbers
+
+// let str = "";
+// for (let i = 0; i < 10; i++) {
+//   for (let j = 0; j < 10; j++) {
+//     str += j;
+//   }
+//   str += "\n";
+// }
+// console.log(str);
+
 //chess
 //cubes
 //multiply table
