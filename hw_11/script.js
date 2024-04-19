@@ -1,4 +1,79 @@
 // Arrow to Functions
+// {
+    // function answer() {
+    //     let question;
+    //     do {
+    //         question = confirm("Ви втомились?");
+    //     } while (!question);
+    //     console.log("Так, я втомився.");
+    // }
+    // answer();
+// }
+
+// {
+//     let arr = [];
+//     function addToArray() {
+//         let userInput = prompt("Введіть елемент масиву:");
+//         if (userInput !== null) {
+//             arr.push(userInput); 
+//             addToArray(); 
+//         }
+//     }
+//     addToArray();
+//     console.log("Масив користувача:", arr);
+// }
+  
+// {   
+//     const arr = [];
+//     let index = 0;
+//     function addToArray() {
+//         const answer = prompt("Введіть щось ");
+//         if (answer) {
+//             arr[index] = answer;
+//             index++;
+//             addToArray();
+//         }
+//     }  
+//     addToArray();
+//     console.log("Масив користувача:", arr);
+// }
+
+// {
+//     function countIterations() {
+//         let index = 0;
+//         while (Math.random() <= 0.9) {
+//             index++;
+//         }
+//         alert("Кількість ітерацій: " + index);
+//     }
+//     countIterations();
+// }
+const n = +prompt();
+let sum = 0;
+for (let i = 0; i <= n; i += 3) {
+  sum += i;
+  console.log(i);
+}
+// {
+//     const step = 3;
+//     function receiptAmount (n, step) {
+  
+//         const numOfTerms = Math.floor((n - 1) / step) + 1;
+//         const sumOfTerms = numOfTerms * (2 + (numOfTerms - 1) * step) / 2;
+//         return sumOfTerms;
+//     }
+//     const N = 10;
+//     const result = receiptAmount(N, step);
+//     console.log(`Сума арифметичної прогресії від 1 до ${N} з кроком ${step} :`, result); 
+// }
+
+// //progression sum
+// const n = +prompt();
+// let sum = 0;
+// for (let i = 0; i <= n; i += 3) {
+//   sum += i;
+//   console.log(i);
+// }
 
 // createPerson
 // {
