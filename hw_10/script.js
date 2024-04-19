@@ -46,11 +46,17 @@ console.log(`Кількість ітерацій: ${index}`)
 while (!prompt()) {};
 
 //progression sum
-const n = +prompt();
-let sum = 0;
-for (let i = 0; i <= n; i += 3) {
-  sum += i;
-  console.log(i);
+{
+  const sum = (N) => {
+  let sum = 0;
+  for (let i = 1; i <= N; i += 3) {
+      sum += i;
+  }
+  return sum;
+  }
+  let N = +prompt("Введіть N"); 
+  let result = sum(N);
+  console.log(`Сума арифметичної прогресії від 1 до ${N} з кроком 3:`, result);
 }
 
 //chess one line
@@ -189,3 +195,5 @@ console.log(result);
   }
   table.append(tbody);
   document.body.append(table);
+
+
