@@ -52,7 +52,7 @@ swapiLinks("https://swapi.dev/api/people/20/")
     .catch(error => console.error("Error:", error));
 
 
-// // //domEventPromise
+// domEventPromise
 function domEventPromise(element, eventName) {
     function executor(resolve) {
         function eventHandler(event) {
@@ -70,7 +70,7 @@ const knopka = document.getElementById('knopka');
 domEventPromise(knopka, 'click')
     .then(e => console.log('event click happens', e));
 
-// //Додаткове
+//Додаткове
 console.log(1);
 
 setTimeout(() => {
