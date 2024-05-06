@@ -1,58 +1,52 @@
 
 //SWAPI Links
-async function swapiLinks(url) {
-    async function fetchSwapiData(url) {
+const getData = async (url) => {
+    const res = await fetch(url);
+    return res.json();
+  };
+  
+  const swapiLinks = async (url) => {
+    const data = await getData(url);
+    const keys = Object.keys(data);
+  
+    for (const key of keys) {
+      const value = data[key];
+      if (typeof value === "string" && value.includes("api")) {
         try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            const data = await response.json();
-            return data;
+          data[key] = await getData(value);
         } catch (error) {
-            console.error("Error fetching data:", error);
-            throw error;
+          console.error(`Failed to fetch ${value}:`, error);
         }
-    }
-
-    const data = await fetchSwapiData(url);
-
-    async function resolveLinks(obj) {
-        const promises = [];
-
-        for (const key in obj) {
-            if (key in obj) {
-                if (Array.isArray(obj[key])) {
-                    const promiseArray = obj[key].map(link => resolveLinks(link));
-                    const resolvedArray = await Promise.all(promiseArray);
-                    obj[key] = resolvedArray;
-                } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-                    const resolvedObj = await resolveLinks(obj[key]);
-                    obj[key] = resolvedObj;
-                }
+      }
+      if (Array.isArray(value)) {
+        const arr = await Promise.all(value.map(async (item) => {
+          if (typeof item === "string" && item.includes("api")) {
+            try {
+              return await getData(item);
+            } catch (error) {
+              console.error(`Failed to fetch ${item}:`, error);
+              return null;
             }
-        }
-
-        if (typeof obj === 'string' && obj.startsWith('https://swapi.dev/api/')) {
-            const promise = fetchSwapiData(obj);
-            promises.push(promise.then(data => {
-                obj = data;
-            }));
-            await Promise.all(promises);
-        }
-
-        return obj;
+          } else {
+            return item;
+          }
+        }));
+        data[key] = arr.filter(item => item !== null); // Filter out failed requests
+      }
     }
+  
+    return data;
+  };
+  
+  const getLinks = async () => {
+    const yodaWithLinks = await swapiLinks("https://swapi.dev/api/people/20/");
+    console.log(JSON.stringify(yodaWithLinks, null, 4));
+  };
+  
+  getLinks();
+  
 
-    return resolveLinks(data);
-}
-
-swapiLinks("https://swapi.dev/api/people/20/")
-    .then(yodaWithLinks => console.log(JSON.stringify(yodaWithLinks, null, 4)))
-    .catch(error => console.error("Error:", error));
-
-
-// domEventPromise
+// // domEventPromise
 function domEventPromise(element, eventName) {
     function executor(resolve) {
         function eventHandler(event) {
@@ -70,7 +64,7 @@ const knopka = document.getElementById('knopka');
 domEventPromise(knopka, 'click')
     .then(e => console.log('event click happens', e));
 
-//Додаткове
+// //Додаткове
 console.log(1);
 
 setTimeout(() => {
@@ -103,5 +97,4 @@ for (let i = 0; i < 3; i++) {
     });
 }
 console.log(9);
-
-// //1 9 8 2 3 4 6 7 4 6 7 4 6 7 5
+//1 9 8 8 8 2 3 4 6 7 4 6 7 4 6 7 5 5 5
