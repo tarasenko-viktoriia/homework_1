@@ -31,7 +31,7 @@ const getData = async (url) => {
             return item;
           }
         }));
-        data[key] = arr.filter(item => item !== null); // Filter out failed requests
+        data[key] = arr.filter(item => item !== null); 
       }
     }
   
