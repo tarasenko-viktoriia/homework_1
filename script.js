@@ -37,7 +37,7 @@ document.querySelector('#button').addEventListener('click', function() {
 store.subscribe(function() {
     const state = store.getState();
     const cash = state.cashier;
-    document.title = `Каса: ${cash}`;
+    document.title = `Cashier: ${cash}`;
 });
 
 console.log(store.getState());
