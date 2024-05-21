@@ -24,6 +24,7 @@
 
     trafficLight();
 }
+
 //PedestrianTrafficLight
 const delay = ms => new Promise(ok => setTimeout(ok, ms));
 const domEventPromise = (element, event) => new Promise(ok => element.addEventListener(event, ok, { once: true }));
@@ -59,47 +60,69 @@ pedestrianTrafficLight({
     cycleTime: 3000, 
     buttonCooldown: 2000 
 });
-//speedtest
-async function speedtest(getPromise, count, parallel = 1) {
-    const startTime = Date.now();
-    
-    let totalPromises = 0;
-    let totalDuration = 0;
-
-    for (let i = 0; i < count; i++) {
-        const batchStartTime = Date.now();
-        const promises = [];
-
-        for (let j = 0; j < parallel; j++) {
-            promises.push(getPromise());
-            totalPromises++;
-        }
-
-        await Promise.all(promises);
-        totalDuration += Date.now() - batchStartTime;
-    }
-
-    const endTime = Date.now();
-    const duration = endTime - startTime;
-    const queryDuration = totalDuration / totalPromises;
-    const querySpeed = 1 / queryDuration;
-    const parallelDuration = duration / (count * parallel);
-    const parallelSpeed = 1 / parallelDuration;
-
-    return {
-        duration,
-        querySpeed,
-        queryDuration,
-        parallelSpeed,
-        parallelDuration
-    };
-}
-
-const lag = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-speedtest(() => lag(1000), 10, 10).then(result => console.log(result));
-
-speedtest(() => fetch('http://swapi.dev/api/people/1').then(res => res.json()), 10, 5).then(result => console.log(result));
 
 //gql
+async function gql(endpoint, query, variables) {
+    const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            query: query,
+            variables: variables
+        })
+    });
+
+    const result = await response.json();
+
+    return result.data;
+}
+
+;(async () => {
+    const catQuery = `query cats($q: String){
+        CategoryFind(query: $q){
+        _id name
+        }
+    }`
+    const cats = await gql("http://shop-roles.node.ed.asmer.org.ua/graphql",  catQuery,  {q: "[{}]"})
+    console.log(cats) 
+    const loginQuery = `query login($login:String, $password:String){
+        login(login:$login, password:$password)
+    }`
+    
+    const token = await gql("http://shop-roles.node.ed.asmer.org.ua/graphql", loginQuery ,{login: "test457", password: "123123"})
+    console.log(token)
+})()
+
 //jwtDecode
+const jwtDecode = (token) => {
+    try {
+        const parts = token.split('.');
+        
+        if (parts.length !== 3) {
+            return undefined;
+        }
+        const payload = parts[1];
+        const decodedPayload = atob(payload);
+        const jsonPayload = JSON.parse(decodedPayload);
+
+        return jsonPayload;
+    } catch (e) {
+        return undefined;
+    }
+}
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOiI2MzIyMDVhZWI3NGUxZjVmMmVjMWEzMjAiLCJsb2dpbiI6InRlc3Q0NTciLCJhY2wiOlsiNjMyMjA1YWViNzRlMWY1ZjJlYzFhMzIwIiwidXNlciJdfSwiaWF0IjoxNjY4MjcyMTYzfQ.rxV1ki9G6LjT2IPWcqkMeTi_1K9sb3Si8vLB6UDAGdw"
+console.log(jwtDecode(token)) 
+
+try {
+    console.log(jwtDecode())     
+    console.log(jwtDecode("дічь"))   
+    console.log(jwtDecode("ey.ey.ey"))  
+    
+    console.log('до сюди допрацювало, а значить jwtDecode не матюкався в консоль червоним кольором')
+}
+finally{
+    console.log('ДЗ, мабуть, закінчено')
+}
