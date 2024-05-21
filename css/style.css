@@ -1,0 +1,28 @@
+.light {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 50%;
+    background-color: grey;
+}
+#red {
+    background-color: red;
+}
+#yellow {
+    background-color: yellow;
+}
+#green {
+    background-color: green;
+}
+#walk {
+    background-color: green;
+}
+#wait {
+    background-color: red;
+}
+.off {
+    background-color: grey !important;
+}
+.disabled {
+    background-color: grey;
+}
