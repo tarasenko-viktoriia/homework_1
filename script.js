@@ -128,3 +128,32 @@ async function gql(endpoint, query, variables) {
 })()
 
 //jwtDecode
+const jwtDecode = (token) => {
+    try {
+        const parts = token.split('.');
+        
+        if (parts.length !== 3) {
+            return undefined;
+        }
+        const payload = parts[1];
+        const decodedPayload = atob(payload);
+        const jsonPayload = JSON.parse(decodedPayload);
+
+        return jsonPayload;
+    } catch (e) {
+        return undefined;
+    }
+}
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOiI2MzIyMDVhZWI3NGUxZjVmMmVjMWEzMjAiLCJsb2dpbiI6InRlc3Q0NTciLCJhY2wiOlsiNjMyMjA1YWViNzRlMWY1ZjJlYzFhMzIwIiwidXNlciJdfSwiaWF0IjoxNjY4MjcyMTYzfQ.rxV1ki9G6LjT2IPWcqkMeTi_1K9sb3Si8vLB6UDAGdw"
+console.log(jwtDecode(token)) 
+
+try {
+    console.log(jwtDecode())     
+    console.log(jwtDecode("дічь"))   
+    console.log(jwtDecode("ey.ey.ey"))  
+    
+    console.log('до сюди допрацювало, а значить jwtDecode не матюкався в консоль червоним кольором')
+}
+finally{
+    console.log('ДЗ, мабуть, закінчено')
+}
