@@ -61,6 +61,38 @@ pedestrianTrafficLight({
     buttonCooldown: 2000 
 });
 
+// speedtest
+async function speedtest(getPromise, count, parallel = 1) {
+    const startTime = Date.now();
+    
+    for (let i = 0; i < count; i++) {
+        const promises = [];
+        for (let j = 0; j < parallel; j++) {
+            promises.push(getPromise());
+        }
+        await Promise.all(promises);
+    }
+
+    const endTime = Date.now();
+    const duration = endTime - startTime;
+    const queryDuration = duration / (count * parallel);
+    const querySpeed = 1 / queryDuration;
+    const parallelDuration = duration / count;
+    const parallelSpeed = (count * parallel) / duration;
+
+    return {
+        duration,
+        querySpeed, 
+        queryDuration, 
+        parallelSpeed, 
+        parallelDuration 
+    };
+}
+
+speedtest(() => new Promise(resolve => setTimeout(resolve, 1000)), 10, 10).then(result => console.log(result));
+speedtest(() => fetch('http://swapi.dev/api/people/1').then(res => res.json()), 10, 5).then(result => console.log(result));
+
+
 //gql
 async function gql(endpoint, query, variables) {
     const response = await fetch(endpoint, {
@@ -78,9 +110,8 @@ async function gql(endpoint, query, variables) {
     const result = await response.json();
 
     return result.data;
-}
-
-;(async () => {
+};
+(async () => {
     const catQuery = `query cats($q: String){
         CategoryFind(query: $q){
         _id name
@@ -97,32 +128,3 @@ async function gql(endpoint, query, variables) {
 })()
 
 //jwtDecode
-const jwtDecode = (token) => {
-    try {
-        const parts = token.split('.');
-        
-        if (parts.length !== 3) {
-            return undefined;
-        }
-        const payload = parts[1];
-        const decodedPayload = atob(payload);
-        const jsonPayload = JSON.parse(decodedPayload);
-
-        return jsonPayload;
-    } catch (e) {
-        return undefined;
-    }
-}
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOiI2MzIyMDVhZWI3NGUxZjVmMmVjMWEzMjAiLCJsb2dpbiI6InRlc3Q0NTciLCJhY2wiOlsiNjMyMjA1YWViNzRlMWY1ZjJlYzFhMzIwIiwidXNlciJdfSwiaWF0IjoxNjY4MjcyMTYzfQ.rxV1ki9G6LjT2IPWcqkMeTi_1K9sb3Si8vLB6UDAGdw"
-console.log(jwtDecode(token)) 
-
-try {
-    console.log(jwtDecode())     
-    console.log(jwtDecode("дічь"))   
-    console.log(jwtDecode("ey.ey.ey"))  
-    
-    console.log('до сюди допрацювало, а значить jwtDecode не матюкався в консоль червоним кольором')
-}
-finally{
-    console.log('ДЗ, мабуть, закінчено')
-}
