@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monthly Salary Calculator</title>
+<style>
+    /* Some basic styling for the input fields and result div */
+    input {
+        margin-bottom: 10px;
+    }
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <div>
+        <h2>Monthly Salary Calculator</h2>
+        <label for="rate">Monthly Rate:</label>
+        <input type="number" id="rate"><br>
+        <label for="numberDaysMonth">Number of Days in the Month:</label>
+        <input type="number" id="numberDaysMonth"><br>
+        <label for="daysWorked">Number of Days Worked:</label>
+        <input type="number" id="daysWorked"><br>
+        <button onclick="calculateSalary()">Calculate Salary</button>
+        <div id="result"></div>
+    </div>
+<script src="./script.js"></script>
+</body>
+</html>
